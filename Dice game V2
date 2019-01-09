@@ -1,0 +1,70 @@
+ import java.util.*;
+       
+        public class diceGame 
+        {
+           public static void main(String[] args) 
+           { 
+    //opening new scanner
+    Scanner myInput = new Scanner(System.in);
+    System.out.println("Hi, This is the Beat That game.  These are the instructions. There are 2 die. You will go first, rolling a 1,2,3,4,5, or 6 on both die. Then I will roll the same die and the highest number will win the round, if the winners number is 20 or higher then the losers you will be rewarded 10 points. If it is less then 20 it will be 5 points. Tie no one is rewarded points.");
+    //inputing yes to start game
+    System.out.println("If you are ready to begin type in (yes)");
+    String start = myInput.next();
+    //loop 
+    while (start.equals("YES") || start.equals("Yes") || start.equals("yes"))
+    {
+      System.out.println("Ok let's begin");
+    System.out.println("How many rounds would you like to play");
+    int repeat = myInput.nextInt();
+        
+  while (repeat>0)
+  {
+    //simulate a roll of the 6 sided die and print the result for user
+    
+    Random r = new Random();
+    
+    int die = r.nextInt(6); //gives result between 0 and 5
+    die = die + 1; // adds one so now its between 1 and 6
+    
+    Random r2 = new Random();
+    
+    int die2 = r.nextInt(6); //second die
+    die2 = die2 + 1;
+    
+    System.out.println("You rolled a "+die+" and a "+die2);
+    
+    if (die>die2)
+    {
+      int Roll=(die*10)+die2;
+      System.out.println("Your number is "+Roll);
+    }
+    else if (die2>die)
+    {
+      int Roll=(die2*10)+die;
+      System.out.println("Your number is "+Roll);
+    }
+    
+    Random r3 = new Random();
+    
+    int die3 = r.nextInt(6); //gives result between 0 and 5
+    die3 = die3 + 1; // adds one so now its between 1 and 6
+    
+    Random r4 = new Random();
+    
+    int die4 = r.nextInt(6); //second die
+    die4 = die4 + 1;
+    
+    System.out.println("I rolled a "+die3+" and a "+die4);
+    
+    
+    
+    repeat= repeat-1;
+    }
+    }
+    
+   
+    System.out.println("Would you like to play again? Enter Yes to play again, enter no to not play again");
+      start = myInput.next();
+    }
+    }
+           
