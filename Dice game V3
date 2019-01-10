@@ -1,0 +1,93 @@
+import java.util.*;
+
+public class diceGame 
+{
+  public static void main(String[] args) 
+    throws InterruptedException 
+  { 
+    //opening new scanner
+    Scanner myInput = new Scanner(System.in);
+    int Points = 0;
+    int Points2 = 0; 
+    System.out.println("Hi, This is the Beat That game.  These are the instructions. There are 2 die. You will go first, rolling a 1,2,3,4,5, or 6 on both die. Then I will roll the same die and the highest number will win the round, if the winners number is 20 or higher then the losers you will be rewarded 10 points. If it is less then 20 it will be 5 points. Tie no one is rewarded points.");
+    //inputing yes to start game
+    System.out.println("If you are ready to begin type in (y)");
+    String start = myInput.next();
+    
+    // dice for the user (1 and 2) and the computer (3 and 4)
+    int die, die2, die3, die4;
+    // concatenation of the two dice (Roll - user, Roll2 - computer)
+    int Roll, Roll2;
+    
+    //loop 
+    while (start.equalsIgnoreCase("YES")||start.equalsIgnoreCase ("y"))
+    {
+      System.out.println("Ok let's begin");
+      System.out.println("How many rounds would you like to play");
+      int repeat = myInput.nextInt();
+      
+      Thread.sleep(2000);
+      
+      for (int i=1; i<=repeat; i++)
+      {
+        System.out.println("If you are ready to start the round type in (y)");
+        String startround = myInput.next();
+        while (startround.equalsIgnoreCase("Yes")||startround.equalsIgnoreCase("y"))
+        {
+        //simulate a roll of the 6 sided die and print the result for user
+        Random r = new Random();
+        
+        die = r.nextInt(6)+1; //gives result between 1 and 6
+        die2 = r.nextInt(6)+1; //second die
+        
+        System.out.println("You rolled a "+die+" and a "+die2);
+        
+        if (die>die2)
+        {
+          Roll=(die*10)+die2;
+          System.out.println("Your number is "+Roll);
+        }
+        else if (die2>=die)
+        {
+          Roll=(die2*10)+die;
+          System.out.println("Your number is "+Roll);
+        }
+        
+        Thread.sleep(2000);
+        
+                
+        die3 = r.nextInt(6)+1; //gives result between 1 and 6
+        die4 = r.nextInt(6)+1; //second die
+        
+        System.out.println("I rolled a "+die3+" and a "+die4);
+        
+        if (die3>die4)
+        {
+          Roll2=(die3*10)+die4;
+          System.out.println("My number is "+Roll2);
+        }
+        else if (die4>=die3)
+        {
+          Roll2=(die4*10)+die3;
+          System.out.println("My number is "+Roll2);
+        }
+        if (Roll-Roll2>=20)
+        {
+          Points = (Points + 10);
+        }
+        else if (Roll-Roll2>=1 || Roll-Roll2<=19)
+        {
+          Points = (Points + 5);
+        }
+        System.out.println("You have "+Points+" points");
+        {break;} 
+        }
+        
+        
+      }
+      System.out.println("Would you like to play again? Enter Yes to play again, enter no to not play again");
+      start = myInput.next();
+    }
+    myInput.close();
+  } //end main
+}
