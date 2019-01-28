@@ -76,7 +76,7 @@ public class diceGame
           Roll2=(die4*10)+die3;
           System.out.println("My number is "+Roll2);
         }
-        
+        //calling the array point value each time
         if (Roll-Roll2>=20)
         {
           points[0] = (points[0] + 10);
@@ -109,7 +109,7 @@ public class diceGame
           System.out.println("HaHa you lose, better luck next time");
         }
       System.out.println("Would you like to play again? Enter y to play again, enter n to not play again");
-      points[0] = 0;
+      points[0] = 0;//resets points to zero after playing new game
       points[1] = 0;
       start = myInput.next();
       if (start.equals("n"))
@@ -120,5 +120,4 @@ public class diceGame
     myInput.close();
   } //end main
   }
-
  
